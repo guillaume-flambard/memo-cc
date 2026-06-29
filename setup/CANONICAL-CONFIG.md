@@ -44,6 +44,14 @@ Keep: `shadcn`. Remove from global: `gbrain` (~150 tools), `stitch`. (gbrain on-
   pdf-viewer, productivity, figma, canva, cowork-plugin-management.
 - After bootstrap: **fully quit & relaunch Claude Code**, then check `/context`.
 
+## LLM fallback (when out of Claude tokens)
+Keep the same harness/skills/knowledge, swap the model. See `setup/llm-fallback/`.
+- **claude-code-router** (`ccr code`) routes Claude Code to OpenRouter (DeepSeek/Qwen/Gemini, cheap) or
+  **Ollama** (local). Config template at `setup/llm-fallback/config.json.template` → `~/.claude-code-router/config.json`.
+- Key in Keychain (`OpenRouter API Key`), exported from `~/.zshrc`. `ccr model ollama,qwen2.5-coder:7b` = fully local.
+- Local model: **`qwen2.5-coder:7b`** (16GB sweet spot; `qwen3-coder:14b` stretch).
+- **`~/GEMINI.md`** mirrors `~/AGENTS.md` for Gemini CLI; **opencode** (model-agnostic) reads AGENTS.md; the Vault is the shared cross-LLM memory.
+
 ## Statusline fix
 `setup/statusline-command.sh` uses locale-independent integer truncation (`${pct%%.*}`) so `printf` never
 breaks under FR locale, plus the ccusage cost segment with graceful fallback.

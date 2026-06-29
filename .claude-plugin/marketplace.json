@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "memo",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "source": "./",
       "description": "Personal AI-driven layer: vault-enrich, new-project, personal-archivist, vault-librarian."
     }

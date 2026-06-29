@@ -79,6 +79,20 @@ else
   cp "$HERE/statusline-command.sh" "$STATUSLINE" && chmod +x "$STATUSLINE" && say "  installed canonical statusline"
 fi
 
+say "== 5. LLM fallback (claude-code-router + Ollama + GEMINI.md) =="
+CCRCFG="$HOME/.claude-code-router/config.json"
+GEM="$HOME/GEMINI.md"
+if command -v ccr >/dev/null 2>&1; then say "  ccr already installed ($(ccr -v 2>/dev/null))"
+elif [ "$CHECK" = 1 ]; then say "  [check] would: npm install -g @musistudio/claude-code-router"
+else npm install -g @musistudio/claude-code-router >/dev/null 2>&1 && say "  installed claude-code-router" || say "  ! ccr install failed"; fi
+if [ -f "$CCRCFG" ]; then say "  CCR config present (not overwriting)"
+elif [ "$CHECK" = 1 ]; then say "  [check] would install CCR config from template"
+else mkdir -p "$(dirname "$CCRCFG")" && cp "$HERE/llm-fallback/config.json.template" "$CCRCFG" && chmod 600 "$CCRCFG" && say "  installed CCR config (set OPENROUTER_API_KEY in Keychain)"; fi
+if [ -f "$GEM" ] && cmp -s "$HERE/GEMINI.md" "$GEM"; then say "  GEMINI.md already canonical"
+elif [ "$CHECK" = 1 ]; then say "  [check] would install ~/GEMINI.md"
+else [ -f "$GEM" ] && do_backup "$GEM"; cp "$HERE/GEMINI.md" "$GEM" && say "  installed ~/GEMINI.md"; fi
+say "  (local model: run 'ollama pull qwen2.5-coder:7b' — ~5GB, not auto-pulled)"
+
 say ""
 say "== Manual steps (not scriptable) =="
 say "  - /plugin : disable Cowork bundles (bio-research, legal, finance, hr, sales, operations,"

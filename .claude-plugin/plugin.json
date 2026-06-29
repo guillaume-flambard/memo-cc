@@ -2,7 +2,7 @@
   "name": "memo",
   "displayName": "memo",
   "description": "Guillaume's personal AI-driven layer: enrich the Vault, scaffold projects, manage personal documents safely, and maintain the knowledge base.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "Guillaume Flambard",
     "email": "g.flambard@gmail.com"
