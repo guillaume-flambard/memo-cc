@@ -33,7 +33,8 @@ ccr model ollama,qwen2.5-coder:7b # force fully-local (offline / no key)
 - `longContext` (>60k) → `google/gemini-2.0-flash-001` · `background` → local `qwen2.5-coder:7b`
 - Edit model IDs via `ccr ui` if OpenRouter renames them.
 
-## Honest expectations
-- **Cheap cloud (DeepSeek/Qwen/Gemini)** ≈ closest to Claude efficiency, pennies per task. Primary fallback.
-- **Local 16GB** = free/offline/private but weaker on hard agentic work; best for background/simple tasks.
+## Honest expectations (tested 2026-06-29)
+- **Cheap cloud (DeepSeek/Qwen/Gemini)** ≈ closest to Claude efficiency, pennies per task. **Use this for real `ccr code` sessions** — fast, handles Claude Code's large context.
+- **Local 16GB** = free/offline/private but **slow with the full Claude Code harness** (the big system prompt overwhelms a 7B; `ccr code`→local timed out >2min). For local, prefer **`opencode`** (lighter harness) or use local only for background/simple/offline tasks.
+- Routing plumbing verified: CCR → local model returns correctly on direct requests.
 - Secrets stay in the **Keychain**, never plaintext (same policy as the rest of the setup).
