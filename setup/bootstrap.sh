@@ -93,6 +93,17 @@ elif [ "$CHECK" = 1 ]; then say "  [check] would install ~/GEMINI.md"
 else [ -f "$GEM" ] && do_backup "$GEM"; cp "$HERE/GEMINI.md" "$GEM" && say "  installed ~/GEMINI.md"; fi
 say "  (local model: run 'ollama pull qwen2.5-coder:7b' — ~5GB, not auto-pulled)"
 
+say "== 6. Global skills (install setup/global-skills/* into ~/.claude/skills) =="
+if [ -d "$HERE/global-skills" ]; then
+  for sk in "$HERE"/global-skills/*/; do
+    [ -d "$sk" ] || continue
+    name="$(basename "$sk")"; dest="$HOME/.claude/skills/$name"
+    if [ -f "$dest/SKILL.md" ] && cmp -s "$sk/SKILL.md" "$dest/SKILL.md"; then say "  $name already current"
+    elif [ "$CHECK" = 1 ]; then say "  [check] would install global skill: $name"
+    else mkdir -p "$dest" && cp -R "$sk"* "$dest/" && say "  installed global skill: $name"; fi
+  done
+else say "  (no global-skills dir)"; fi
+
 say ""
 say "== Manual steps (not scriptable) =="
 say "  - /plugin : disable Cowork bundles (bio-research, legal, finance, hr, sales, operations,"

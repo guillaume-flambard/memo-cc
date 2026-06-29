@@ -52,6 +52,11 @@ Keep the same harness/skills/knowledge, swap the model. See `setup/llm-fallback/
 - Local model: **`qwen2.5-coder:7b`** (16GB sweet spot; `qwen3-coder:14b` stretch).
 - **`~/GEMINI.md`** mirrors `~/AGENTS.md` for Gemini CLI; **opencode** (model-agnostic) reads AGENTS.md; the Vault is the shared cross-LLM memory.
 
+## Global skills (`~/.claude/skills/`)
+Reproducible global skills live in `setup/global-skills/` and are installed by `bootstrap.sh`:
+- **paperclip** — drives the self-hosted Paperclip app (`paperclipai`, local project/issue/agent manager
+  at 127.0.0.1:3100) for tracking project work as issues (companies = ventures: Echo Travel, Largo IA…).
+
 ## Statusline fix
 `setup/statusline-command.sh` uses locale-independent integer truncation (`${pct%%.*}`) so `printf` never
 breaks under FR locale, plus the ccusage cost segment with graceful fallback.
