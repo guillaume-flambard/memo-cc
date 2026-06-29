@@ -22,6 +22,20 @@ claude plugin install memo@memo-marketplace
 Then `/vault-enrich` and `/new-project` are available, and `personal-archivist` / `vault-librarian`
 appear as subagent types.
 
+## Canonical config (the "general truth")
+
+This repo also encodes Guillaume's standard, reproducible Claude Code setup so any machine matches it:
+
+- **`setup/CANONICAL-CONFIG.md`** — the truth: lean enabled-plugins set (14), on-demand list (13),
+  global-MCP policy (`shadcn` only), efficiency tooling (rtk/mgrep/ccusage), security (secrets in
+  Keychain), and the manual `/plugin` steps for Cowork bundles.
+- **`setup/bootstrap.sh`** — idempotent applier (backs up everything; `--check` for a dry-run):
+  ```bash
+  bash setup/bootstrap.sh --check   # preview
+  bash setup/bootstrap.sh           # apply, then restart Claude Code
+  ```
+- **`setup/statusline-command.sh`** — canonical statusline (ccusage cost segment + FR-locale-safe).
+
 ## Design
 See `docs/specs/2026-06-29-memo-plugin-design.md`.
 
