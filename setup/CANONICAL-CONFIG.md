@@ -11,18 +11,39 @@ accuracy) is in the Vault: `03-Technologies/Claude-Code-Setup.md` + `AI-Tooling-
 - **Secrets never in plaintext config** — store in macOS Keychain, reference via `${VAR}` exported from `~/.zshrc`.
 - **Measure**: `ccusage` (installed + wired to statusline) + `/context`.
 
-## Enabled plugins (14 — core, always on)
+## Enabled plugins (15 — core, always on)
 mgrep@Mixedbread-Grep · superpowers@claude-plugins-official · claude-mem@thedotmack ·
 context7@claude-plugins-official · github@claude-plugins-official · commit-commands@claude-plugins-official ·
 code-review@claude-plugins-official · code-simplifier@claude-plugins-official ·
 typescript-lsp@claude-plugins-official · claude-md-management@claude-plugins-official ·
 plugin-dev@claude-plugins-official · obsidian@obsidian-skills · frontend-design@claude-plugins-official ·
-memo@memo-marketplace
+memo@memo-marketplace · caveman@caveman
 
-## Disabled plugins (13 — on-demand, re-enable via `/plugin` when needed)
+## Disabled plugins (23 — on-demand, re-enable via `/plugin` when needed)
 vercel · linear · sentry · semgrep · ralph-loop · security-guidance · agent-sdk-dev · feature-dev ·
 pr-review-toolkit · chrome-devtools-mcp · playwright (all @claude-plugins-official) ·
-ui-ux-pro-max@ui-ux-pro-max-skill · claude-seo@agricidaniel-seo
+ui-ux-pro-max@ui-ux-pro-max-skill · claude-seo@agricidaniel-seo ·
+context-mode@context-mode (2026-07-03: recurring ~100-tok injection on every Read/Bash/Grep/mcp call
+≈ 10k tok/100 calls + 14 hook bindings — cost outweighed savings) ·
+threejs-webgl / gsap-scrolltrigger / react-three-fiber / core-3d-animation / extended-3d-scroll /
+animation-components / authoring-motion / meta-skills (all @claude-design-skillstack; 2026-07-03:
+~11k tok combined, 3 of them 100% duplicated inside core-3d-animation — re-enable only core-3d-animation
+for 3D work)
+
+## Config audit 2026-07-03 (measured)
+Full read-only audit then slim-down. System-prompt frontmatter: **99,982B (~25k tok) → 36,655B (~9.2k tok)**.
+- **Global skills: 37 of 73 archived** to `~/.claude/skills-archive/` (moved, never deleted): 12 overlapping
+  design-taste skills (kept impeccable, imagegen-frontend-web, brandkit, logo-generator, aceternity-ui,
+  design-inspiration, responsive-design), 2 orphans (llm-agnostics: no SKILL.md; open-gstack-browser:
+  name collision with connect-chrome), 23 dormant gstack wrappers (autoplan, benchmark*, plan-*-review,
+  retro, office-hours, canary, browse=duplicate of gstack, design-consultation/html/review/shotgun,
+  setup/sync-gbrain, skillify, pair-agent, devex-review, document-release, landing-report).
+  ⚠️ `~/.claude/skills/gstack/` is the full gstack source repo and the symlink target of the ~20
+  remaining wrappers — never move it.
+- **Permissions purged** in `settings.local.json` (49 → 36 allow entries): removed `rm:*`, `ssh:*`,
+  `chmod:*`, 7 dead shell-loop fragments, 3 one-shot fossils.
+- **Removed** the `context-mode-cache-heal.mjs` SessionStart hook from `settings.json` (orphaned once
+  context-mode disabled). Backups: `~/.claude/backups-audit-2026-07-03/`.
 
 ## Global MCP servers (`~/.claude.json` → mcpServers)
 Keep: `shadcn`. Remove from global: `gbrain` (~150 tools), `stitch`. (gbrain on-demand; niche MCP per-project.)

@@ -20,7 +20,7 @@ ENABLE=(
   code-review@claude-plugins-official code-simplifier@claude-plugins-official
   typescript-lsp@claude-plugins-official claude-md-management@claude-plugins-official
   plugin-dev@claude-plugins-official obsidian@obsidian-skills frontend-design@claude-plugins-official
-  memo@memo-marketplace
+  memo@memo-marketplace caveman@caveman
 )
 DISABLE=(
   vercel@claude-plugins-official linear@claude-plugins-official sentry@claude-plugins-official
@@ -28,6 +28,11 @@ DISABLE=(
   agent-sdk-dev@claude-plugins-official feature-dev@claude-plugins-official pr-review-toolkit@claude-plugins-official
   chrome-devtools-mcp@claude-plugins-official playwright@claude-plugins-official
   ui-ux-pro-max@ui-ux-pro-max-skill claude-seo@agricidaniel-seo
+  context-mode@context-mode
+  threejs-webgl@claude-design-skillstack gsap-scrolltrigger@claude-design-skillstack
+  react-three-fiber@claude-design-skillstack core-3d-animation@claude-design-skillstack
+  extended-3d-scroll@claude-design-skillstack animation-components@claude-design-skillstack
+  authoring-motion@claude-design-skillstack meta-skills@claude-design-skillstack
 )
 
 say "== 1. Plugins (enabledPlugins in settings.json) =="
