@@ -109,6 +109,24 @@ if [ -d "$HERE/global-skills" ]; then
   done
 else say "  (no global-skills dir)"; fi
 
+say "== 7. opencode (canonical global config + AGENTS.md) =="
+OCDIR="$HOME/.config/opencode"
+if command -v opencode >/dev/null 2>&1 || [ -d "$OCDIR" ]; then
+  mkdir -p "$OCDIR"
+  for f in opencode.json AGENTS.md; do
+    src="$HERE/opencode/$f"; dest="$OCDIR/$f"
+    if [ -f "$dest" ] && cmp -s "$src" "$dest"; then say "  $f already canonical"
+    elif [ "$CHECK" = 1 ]; then say "  [check] would install $f -> $dest"
+    else [ -f "$dest" ] && do_backup "$dest"; cp "$src" "$dest" && say "  installed $f"; fi
+  done
+  # Legacy location is MERGED into the global config by opencode — must stay schema-only.
+  LEGACY="$HOME/.opencode/opencode.json"
+  if [ -f "$LEGACY" ] && grep -q '"mcp"' "$LEGACY"; then
+    if [ "$CHECK" = 1 ]; then say "  [check] would neutralize legacy $LEGACY (it merges into global config!)"
+    else do_backup "$LEGACY"; printf '{\n  "$schema": "https://opencode.ai/config.json"\n}\n' > "$LEGACY" && say "  neutralized legacy $LEGACY"; fi
+  fi
+else say "  (opencode not installed — skipping)"; fi
+
 say ""
 say "== Manual steps (not scriptable) =="
 say "  - /plugin : disable Cowork bundles (bio-research, legal, finance, hr, sales, operations,"

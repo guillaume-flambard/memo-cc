@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    "shadcn": {
+      "type": "local",
+      "command": ["npx", "-y", "shadcn@latest", "mcp"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "enabled": false
+    },
+    "draw-things": {
+      "type": "local",
+      "command": ["draw-things-mcp-cursor"],
+      "enabled": false,
+      "environment": {
+        "DRAW_THINGS_API_PORT": "7888"
+      }
+    }
+  }
+}

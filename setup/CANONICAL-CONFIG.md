@@ -65,6 +65,23 @@ Keep: `shadcn`. Remove from global: `gbrain` (~150 tools), `stitch`. (gbrain on-
   pdf-viewer, productivity, figma, canva, cowork-plugin-management.
 - After bootstrap: **fully quit & relaunch Claude Code**, then check `/context`.
 
+## opencode (canonical global config — audit 2026-07-04)
+Templates in `setup/opencode/` (installed by `bootstrap.sh` step 7):
+- **`~/.config/opencode/opencode.json`** — global MCP: `context7` + `shadcn` enabled; `playwright` +
+  `draw-things` present but `"enabled": false` (flip on demand). Everything else per-project.
+- **`~/.config/opencode/AGENTS.md`** — global rules (home map, Vault, sensitive zones, English names,
+  jj, small-context discipline for free models).
+- ⚠️ **`~/.opencode/opencode.json` (legacy path) is MERGED into the global config** — keep it
+  schema-only, or its MCP entries silently pile onto every session (bootstrap neutralizes it).
+- Audit findings 2026-07-04: 17 MCP servers globally enabled across the two files (~14 local processes
+  spawned per session, hundreds of tool schemas — deadly for free models' 32–64k context windows);
+  4 pointed at a deleted `~/projects/echo/echotravel/.opencode/` (crashed every start); `stitch` was
+  corrupted by the two-file merge and carried a **plaintext Google API key** (rotate it); `dcp.jsonc` +
+  `config.json` were orphans; 1.39 GB stale logs purged from `~/.local/share/opencode/log`.
+  Backups: `~/.config/opencode/backups-audit-2026-07-04/`.
+- Project MCP (storybook, antd, booking…) belongs in each repo's `opencode.json`, never global.
+- Secrets in opencode config: use `{env:VAR}` substitution, never literal keys.
+
 ## LLM fallback (when out of Claude tokens)
 Keep the same harness/skills/knowledge, swap the model. See `setup/llm-fallback/`.
 - **claude-code-router** (`ccr code`) routes Claude Code to OpenRouter (DeepSeek/Qwen/Gemini, cheap) or
