@@ -91,9 +91,9 @@ Keep the same harness/skills/knowledge, swap the model. See `setup/llm-fallback/
 - **`~/GEMINI.md`** mirrors `~/AGENTS.md` for Gemini CLI; **opencode** (model-agnostic) reads AGENTS.md; the Vault is the shared cross-LLM memory.
 
 ## Global skills (`~/.claude/skills/`)
-Reproducible global skills live in `setup/global-skills/` and are installed by `bootstrap.sh`:
-- **paperclip** — drives the self-hosted Paperclip app (`paperclipai`, local project/issue/agent manager
-  at 127.0.0.1:3100) for tracking project work as issues (companies = ventures: Echo Travel, Largo IA…).
+Reproducible global skills live in `setup/global-skills/` and are installed by `bootstrap.sh`.
+- _(paperclip removed 2026-07-29 — Paperclip app fully deleted; it duplicated stasis/jobs/GitHub/Vault
+  and carried no live work. Venture task state now lives in GitHub issues + Vault notes.)_
 
 ## Statusline fix
 `setup/statusline-command.sh` uses locale-independent integer truncation (`${pct%%.*}`) so `printf` never
