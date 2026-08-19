@@ -2,14 +2,17 @@
   "name": "memo",
   "displayName": "memo",
   "description": "Guillaume's personal AI-driven layer: enrich the Vault, scaffold projects, manage personal documents safely, and maintain the knowledge base.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": {
     "name": "Guillaume Flambard",
     "email": "g.flambard@gmail.com"
   },
   "homepage": "https://github.com/guillaume-flambard/memo-cc",
-  "keywords": ["personal", "vault", "obsidian", "knowledge", "workflow"],
-  "skills": "./skills/",
-  "agents": "./agents/",
-  "commands": "./commands/"
+  "keywords": [
+    "personal",
+    "vault",
+    "obsidian",
+    "knowledge",
+    "workflow"
+  ]
 }
