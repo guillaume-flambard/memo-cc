@@ -16,8 +16,12 @@ source-of-truth, atomic. Do NOT dump session chatter — only durable, reusable 
 2. **Search first (anti-duplicate).** Search the vault for the concept:
    `mgrep "<concept>"` (or `rg -i "<concept>" ~/Vault --glob '*.md'`). If a note already covers it,
    **update that note** (bump `updated`, add to it) — never create a duplicate. Link, don't repeat.
-3. **Pick the folder** by type: `1-Projects` `02-Clients` `03-Technologies` `04-Business`
-   `05-Learning` `06-Ideas` `07-Research` `3-Garden/career` `09-Life` `10-Resources` (system → `4-Tools`).
+3. **Pick the folder** with the routing question from `4-Tools/conventions.md`: does it have an
+   end and a deliverable? Yes → `1-Projects`. No → `3-Garden/<sub>` (`business` `career`
+   `freelance` `ideas` `learning` `life` `research` `resources` `security` `tech`).
+   System and tooling → `4-Tools`. MOCs and identity → `0-Home`. Raw capture → `0-Inbox`.
+   Those five top-level folders are all there is. There is no `Archive` folder: lifecycle
+   lives in `status`, never in the path.
 4. **Start from the template** in `~/Vault/4-Tools/templates/` for that type if one exists.
 5. **Frontmatter** per `~/Vault/4-Tools/frontmatter-spec.md`:
    `title, type, status, created (today), updated (today), tags (controlled — see 4-Tools/tagging.md), related [[...]]`.
