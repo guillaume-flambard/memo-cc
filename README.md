@@ -40,6 +40,6 @@ This repo also encodes Guillaume's standard, reproducible Claude Code setup so a
 See `docs/specs/2026-06-29-memo-plugin-design.md`.
 
 ## Conventions it encodes
-- Vault contract: `~/Vault/AGENTS.md`, `99-System/frontmatter-spec.md`, `conventions.md`, `tagging.md`.
+- Vault contract: `~/Vault/AGENTS.md`, `4-Tools/frontmatter-spec.md`, `conventions.md`, `tagging.md`.
 - Home map & golden rules: `~/AGENTS.md`.
 - Security: personal docs are local-only; secrets never enter the Vault/git.

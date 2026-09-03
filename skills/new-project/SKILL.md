@@ -1,6 +1,6 @@
 ---
 name: new-project
-description: "Use when Guillaume wants to start a new code project. Scaffolds ~/projects/<name>/ with his conventions (local AGENTS.md/CLAUDE.md, README, git), ASKS for the stack each time, then registers it in the Vault (01-Projects + Projects-MOC) and ~/myprojects.md. Trigger: /new-project <name>."
+description: "Use when Guillaume wants to start a new code project. Scaffolds ~/projects/<name>/ with his conventions (local AGENTS.md/CLAUDE.md, README, git), ASKS for the stack each time, then registers it in the Vault (1-Projects + Projects-MOC) and ~/myprojects.md. Trigger: /new-project <name>."
 ---
 
 # new-project — scaffold and register a new project
@@ -19,9 +19,9 @@ Create a new project under `~/projects/` and wire it into the knowledge base so 
      the project's stack + any project-specific rules
    - `.gitignore` appropriate to the stack
 4. **Register in the Vault** (`~/Vault`):
-   - Create `01-Projects/<name>.md` with frontmatter `type: project, status: active, created/updated:
-     today`, plus optional `repo, stack: [...], language, url`. Follow `99-System/frontmatter-spec.md`.
-   - Add a bullet to `~/Vault/00-Dashboard/Projects-MOC.md` (and a domain MOC like `AI-MOC`/`Mobile-Apps-MOC` if it fits).
+   - Create `1-Projects/<name>.md` with frontmatter `type: project, status: active, created/updated:
+     today`, plus optional `repo, stack: [...], language, url`. Follow `4-Tools/frontmatter-spec.md`.
+   - Add a bullet to `~/Vault/0-Home/Projects-MOC.md` (and a domain MOC like `AI-MOC`/`Mobile-Apps-MOC` if it fits).
    - Append a row to `~/myprojects.md`.
 5. **Commit the Vault:** `git -C ~/Vault add -A && git -C ~/Vault commit -m "Add project <name>" && git -C ~/Vault push`.
 6. Report the created paths and the registered note.

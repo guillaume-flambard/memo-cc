@@ -6,7 +6,7 @@ looks for `GEMINI.md` rather than `AGENTS.md`.
 
 ## Essentials (full detail in `~/AGENTS.md`)
 - **Knowledge base:** `~/Vault` (Obsidian + git) is my canonical, cross-LLM long-term memory. Start at
-  `~/Vault/00-Dashboard/Home.md`; paste-ready brief at `~/Vault/99-System/AI-context-pack.md`.
+  `~/Vault/0-Home/Home.md`; paste-ready brief at `~/Vault/4-Tools/AI-context-pack.md`.
 - **Projects:** `~/projects` (~115). Obey each project's own config.
 - **Sensitive (local only, never transmit):** `~/Documents`, `~/Downloads/_SECRETS-to-secure`. Secrets live in the macOS Keychain.
 - **Conventions:** English names; durable knowledge → atomic notes in the Vault (`~/Vault/AGENTS.md`); temp files in the session scratchpad, not `~`.

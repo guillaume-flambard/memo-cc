@@ -6,7 +6,7 @@ description: "Use when a durable, reusable learning, decision, fix, or pattern e
 # vault-enrich — promote knowledge into the Vault
 
 Turn a durable learning into a single atomic note in `~/Vault`, following the vault's own contract
-(`~/Vault/AGENTS.md`, `99-System/conventions.md`, `99-System/frontmatter-spec.md`). Human-first,
+(`~/Vault/AGENTS.md`, `4-Tools/conventions.md`, `4-Tools/frontmatter-spec.md`). Human-first,
 source-of-truth, atomic. Do NOT dump session chatter — only durable, reusable knowledge.
 
 ## Checklist (do in order)
@@ -16,14 +16,14 @@ source-of-truth, atomic. Do NOT dump session chatter — only durable, reusable 
 2. **Search first (anti-duplicate).** Search the vault for the concept:
    `mgrep "<concept>"` (or `rg -i "<concept>" ~/Vault --glob '*.md'`). If a note already covers it,
    **update that note** (bump `updated`, add to it) — never create a duplicate. Link, don't repeat.
-3. **Pick the folder** by type: `01-Projects` `02-Clients` `03-Technologies` `04-Business`
-   `05-Learning` `06-Ideas` `07-Research` `08-Career` `09-Life` `10-Resources` (system → `99-System`).
-4. **Start from the template** in `~/Vault/99-System/templates/` for that type if one exists.
-5. **Frontmatter** per `~/Vault/99-System/frontmatter-spec.md`:
-   `title, type, status, created (today), updated (today), tags (controlled — see 99-System/tagging.md), related [[...]]`.
+3. **Pick the folder** by type: `1-Projects` `02-Clients` `03-Technologies` `04-Business`
+   `05-Learning` `06-Ideas` `07-Research` `3-Garden/career` `09-Life` `10-Resources` (system → `4-Tools`).
+4. **Start from the template** in `~/Vault/4-Tools/templates/` for that type if one exists.
+5. **Frontmatter** per `~/Vault/4-Tools/frontmatter-spec.md`:
+   `title, type, status, created (today), updated (today), tags (controlled — see 4-Tools/tagging.md), related [[...]]`.
    Filename = the concept in Title Case (e.g. `Vector Databases.md`); projects use the repo name.
 6. **Write the note atomically** — one concept. Add `[[wikilinks]]` to related notes.
-7. **Register in the right MOC** in `~/Vault/00-Dashboard/*-MOC.md` (add a bullet linking the note).
+7. **Register in the right MOC** in `~/Vault/0-Home/*-MOC.md` (add a bullet linking the note).
 8. **Never copy secrets** (IDs, bank/RIB, 2FA, raw financials) into the vault — status/metadata only.
 9. **Commit + push** (one atomic commit):
    `git -C ~/Vault add -A && git -C ~/Vault commit -m "<what changed>" && git -C ~/Vault push`.
