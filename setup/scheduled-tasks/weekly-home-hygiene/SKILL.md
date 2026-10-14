@@ -11,7 +11,7 @@ Checks to run:
 1. Loose files at `~` root (anything that is not a known dir from ~/AGENTS.md map, dotfiles excluded).
 2. `~/Downloads` root: files outside the staging dirs (`_Apps`, `_Docs`, `_Echo-data`, `_Installers`, `_SECRETS-to-secure`) and AGENTS.md.
 3. `~/Desktop` clutter (count + biggest items).
-4. New entries in `~/projects` (top level) that have NO row in `~/projects/PROJECTS.md` — the manifest rule. Also: broken symlinks (`find ~/projects -maxdepth 1 -type l ! -exec test -e {} \; -print` style check).
+4. The registry rule: `projects-lint` (repositories under `$MEMOLABS_ROOT`, default `~/memolabs`, with NO row in `$MEMOLABS_ROOT/PROJECTS.md`, or rows whose path is missing) and `proj list` (every row `ok`). Also: `~/projects` must NOT exist (retired 2026-10-14); report it if it reappears.
 5. Disk: `df -h /` + top cache consumers (`du -sh ~/Library/Caches ~/.npm ~/.cache 2>/dev/null`).
 6. `~/Archive` growth vs last week: read the last row in `baseline.md`, run `du -sh ~/Archive`, report the delta (⚠️ if it grew notably), then append a new dated row to `baseline.md`. Appending this row is the one write this task is allowed — nothing else.
 
