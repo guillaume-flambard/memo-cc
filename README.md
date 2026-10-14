@@ -1,21 +1,21 @@
 # memo — personal Claude Code plugin
 
 Guillaume's AI-driven layer for `~/memo`. Turns the recurring workflows of his setup (Obsidian Vault
-at `~/Vault`, projects in `~/projects`, personal docs in `~/Documents`) into reusable skills + agents.
+at `~/Vault`, projects registered in `~/memolabs/PROJECTS.md` (resolve with `proj path <name>`), personal docs in `~/Documents`) into reusable skills + agents.
 
 ## Contents
 
 | Type | Name | What it does |
 |------|------|--------------|
 | Skill | `vault-enrich` (`/vault-enrich`) | Promote a durable learning into the Vault as a conforming atomic note (frontmatter, MOC, commit+push). |
-| Skill | `new-project` (`/new-project <name>`) | Scaffold `~/projects/<name>` (asks the stack each time) + register in the Vault & `~/myprojects.md`. |
+| Skill | `new-project` (`/new-project <name>`) | Scaffold `$MEMOLABS_ROOT/<domain>/<name>` (asks the stack each time) + register in `PROJECTS.md`, the Vault & `~/myprojects.md`. |
 | Agent | `personal-archivist` | Local-only document archivist for `~/Documents`. Never transmits externally, never copies secrets into git. |
 | Agent | `vault-librarian` | Maintains the Vault: frontmatter, links, MOCs, duplicates, placeholders → commit. |
 
 ## Install (local marketplace)
 
 ```bash
-claude plugin marketplace add ~/projects/memo-cc
+claude plugin marketplace add "$(proj path memo-cc)"
 claude plugin install memo@memo-marketplace
 ```
 

@@ -53,7 +53,7 @@ if [ -n "$wt_name" ]; then
 fi
 
 # --- Build output ---
-# Format: memo  ~/projects/echo/echotravel  develop  Claude 3.5 Sonnet  ctx:42%
+# Format: memo  ~/memolabs/products/drop  develop  Claude 3.5 Sonnet  ctx:42%
 parts=""
 
 # user + dir
